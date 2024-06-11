@@ -21,7 +21,7 @@ filtered_data = filtered_data.groupby("Country/Region").sum().reset_index()
 
 
 filtered_data = filtered_data.melt(id_vars=["Country/Region"], var_name="Date", value_name="Confirmed Cases")
-filtered_data["Date"] = pd.to_datetime(filtered_data["Date"])
+filtered_data["Date"] = pd.to_datetime(filtered_data["Date"], format="%m/%d/%y")
 
 
 fig = px.bar(
